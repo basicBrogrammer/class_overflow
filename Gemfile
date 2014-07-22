@@ -43,4 +43,12 @@ group :development, :test do
 
 end
 gem 'guard-rspec', require: false, group: :development
-gem 'simplecov', :require => false, :group => :test
+
+group :test do
+  gem 'simplecov', :require => false
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+end
+gem 'simple_form'
+# gem 'byebug'
