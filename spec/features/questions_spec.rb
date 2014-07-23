@@ -6,6 +6,7 @@ feature 'Manage questions' do
     visit questions_path
     expect(page).to have_content('Title 1')
     expect(page).to have_content('Title 2')
+
   end
 
   scenario "allows user to add a new question " do
@@ -14,14 +15,22 @@ feature 'Manage questions' do
     fill_in 'Title', with: question.title
     fill_in 'Content', with: question.content
     click_button 'Submit'
-
     expect(page).to have_content(question.title)
+
   end
 
   scenario 'displaying a specific question' do
     question = create(:question)
-    visit question_path(question)
-    expect(page).to have_content('Title 1')
+    visit question_path(question.id)
+    expect(page).to have_content(' Title 1')
   end
 
+    scenario 'displaying question with feedback' do
+      question = create(:question)
+      answer = create(:answer)
+
+      visit question_path(question)
+      expect(page).to have_content('Title 1')
+      expect(page).to have_content('John')
+    end
 end

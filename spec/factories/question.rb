@@ -4,4 +4,5 @@ FactoryGirl.define do
     content "Content"
 
   end
+
 end
