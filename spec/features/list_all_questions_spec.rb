@@ -18,4 +18,10 @@ feature 'Manage questions' do
     expect(page).to have_content(question.title)
   end
 
+  scenario 'displaying a specific question' do
+    question = create(:question)
+    visit question_path(question)
+    expect(page).to have_content('Title 1')
+  end
+
 end

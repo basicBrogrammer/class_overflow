@@ -4,15 +4,15 @@ class QuestionsController < ApplicationController
     @questions = Question.all
     respond_with @questions
   end
+
+  def show
+    @question = Question.find(params[:id])
+  end
+
   def new
     @question = Question.new
-
-    # if @question.save
-    #   redirect_to questions_path, notice: 'Question Added'
-    # else
-    #   render :new
-    # end
   end
+
   def create
     @question = Question.new(question_params)
 
